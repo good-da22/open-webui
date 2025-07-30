@@ -24,6 +24,9 @@ ARG GID=0
 FROM --platform=$BUILDPLATFORM node:22-alpine3.20 AS build
 ARG BUILD_HASH
 
+# Node.js 메모리 제한 증가
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+
 WORKDIR /app
 
 # to store git revision in build
