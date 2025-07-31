@@ -2077,7 +2077,7 @@
 >
 	{#if !loading}
 		<div in:fade={{ duration: 50 }} class="w-full h-full flex flex-col">
-			{#if $settings?.backgroundImageUrl ?? $config?.license_metadata?.background_image_url ?? '/static/background-defalut.png'}
+			<!-- {#if $settings?.backgroundImageUrl ?? $config?.license_metadata?.background_image_url ?? null}
 				<div
 					class="absolute {$showSidebar
 						? 'md:max-w-[calc(100%-260px)] md:translate-x-[260px]'
@@ -2089,7 +2089,17 @@
 				<div
 					class="absolute top-0 left-0 w-full h-full bg-linear-to-t from-white to-white/85 dark:from-gray-900 dark:to-gray-900/90 z-0"
 				/>
-			{/if}
+			{/if} -->
+			<div
+				class="absolute {$showSidebar
+					? 'md:max-w-[calc(100%-260px)] md:translate-x-[260px]'
+					: ''} top-0 left-0 w-full h-full bg-cover bg-no-repeat"
+				style={`background-image: url(${($settings?.backgroundImageUrl) || '/static/background-default.png'})`}
+			/>
+
+			<div
+				class="absolute top-0 left-0 w-full h-full bg-linear-to-t from-white to-white/85 dark:from-gray-900 dark:to-gray-900/90 z-0"
+			/>
 
 			<PaneGroup direction="horizontal" class="w-full h-full">
 				<Pane defaultSize={50} class="h-full flex relative max-w-full flex-col">
