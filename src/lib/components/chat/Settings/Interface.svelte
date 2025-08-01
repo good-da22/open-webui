@@ -16,9 +16,9 @@
 	let filesInputElement;
 
 	// Addons
-	let titleAutoGenerate = true;
-	let autoFollowUps = true;
-	let autoTags = true;
+	let titleAutoGenerate = false;
+	let autoFollowUps = false;
+	let autoTags = false;
 
 	let responseAutoCopy = false;
 	let widescreenMode = false;
@@ -199,7 +199,8 @@
 	};
 
 	const toggleTitleAutoGenerate = async () => {
-		titleAutoGenerate = !titleAutoGenerate;
+		// titleAutoGenerate = !titleAutoGenerate;
+		titleAutoGenerate = false;
 		saveSettings({
 			title: {
 				...$settings.title,
@@ -209,12 +210,14 @@
 	};
 
 	const toggleAutoFollowUps = async () => {
-		autoFollowUps = !autoFollowUps;
+		// autoFollowUps = !autoFollowUps;
+		autoFollowUps = false;
 		saveSettings({ autoFollowUps });
 	};
 
 	const toggleAutoTags = async () => {
-		autoTags = !autoTags;
+		// autoTags = !autoTags;
+		autoTags = false;
 		saveSettings({ autoTags });
 	};
 
