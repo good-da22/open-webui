@@ -312,7 +312,6 @@ async def get_all_models(request, refresh: bool = False, user: UserModel = None)
 
 
 def check_model_access(user, model):
-    log.debug(f"Registered models: {request.app.state.MODELS}")
     
     if model.get("arena"):
         if not has_access(

@@ -1746,11 +1746,11 @@
 							messages.at(1)?.role === 'user')) &&
 					(selectedModels[0] === model.id || atSelectedModel !== undefined)
 						? {
-								title_generation: $settings?.title?.auto ?? true,
-								tags_generation: $settings?.autoTags ?? true
+								title_generation: $settings?.title?.auto ?? false, // 기본값 변경
+								tags_generation: $settings?.autoTags ?? false // 기본값 변경
 							}
 						: {}),
-					follow_up_generation: $settings?.autoFollowUps ?? true
+					follow_up_generation: $settings?.autoFollowUps ?? false // 기본값 변경
 				},
 
 				...(stream && (model.info?.meta?.capabilities?.usage ?? false)

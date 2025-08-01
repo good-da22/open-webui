@@ -1344,6 +1344,7 @@ async def chat_completion(
     form_data: dict,
     user=Depends(get_verified_user),
 ):
+
     if not request.app.state.MODELS:
         await get_all_models(request, user=user)
 
