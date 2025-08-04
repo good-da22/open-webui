@@ -29,12 +29,19 @@
 	{:else if token.type === 'html'}
 		<HtmlToken {id} {token} {onSourceClick} />
 	{:else if token.type === 'link'}
+		<!-- 마크다운 형태 응답에서 링크 모달로 처리하기 -->
 		{#if token.tokens}
-			<a href={token.href} target="_blank" rel="nofollow" title={token.title}>
+			<a href={token.href} on:click={(event) => {
+				event.preventDefault(); // Prevent default behavior
+				onSourceClick(token.href); // Trigger modal opening
+			}} title={token.title}>
 				<svelte:self id={`${id}-a`} tokens={token.tokens} {onSourceClick} {done} />
 			</a>
 		{:else}
-			<a href={token.href} target="_blank" rel="nofollow" title={token.title}>{token.text}</a>
+			<a href={token.href} on:click={(event) => {
+				event.preventDefault(); // Prevent default behavior
+				onSourceClick(token.href); // Trigger modal opening
+			}} title={token.title}>{token.text}</a>
 		{/if}
 	{:else if token.type === 'image'}
 		<Image src={token.href} alt={token.text} />

@@ -110,7 +110,7 @@ log.setLevel(SRC_LOG_LEVELS["CONFIG"])
 # WEBUI_NAME = os.environ.get("WEBUI_NAME", "Open WebUI")
 # if WEBUI_NAME != "Open WebUI":
 #     WEBUI_NAME += " (Open WebUI)"
-WEBUI_NAME = os.environ.get("WEBUI_NAME", "신한 DS ChatBot")
+WEBUI_NAME = os.environ.get("WEBUI_NAME", "제주은행 지식 베이스 챗봇")
 
 
 
