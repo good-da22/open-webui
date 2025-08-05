@@ -29,6 +29,24 @@
 	src: url('/assets/fonts/Vazirmatn-Variable.ttf');
 	font-display: swap;
 }
+@font-face {
+  font-family: 'OneShinhan';
+  src: url('/static/assets/fonts/OneShinhanBold.ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OneShinhan';
+  src: url('/static/assets/fonts/OneShinhanLight.ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OneShinhan';
+  src: url('/static/assets/fonts/OneShinhanMedium.ttf');
+  font-display: swap;
+}
+
 
 html {
 	word-break: break-word;
@@ -46,7 +64,7 @@ code {
 }
 
 .font-secondary {
-	font-family: 'InstrumentSerif', sans-serif;
+	font-family: 'OneShinhan', 'InstrumentSerif', sans-serif;
 }
 
 .marked a {
@@ -490,7 +508,7 @@ input[type='number'] {
 
 .tiptap pre {
 	border-radius: 0.5rem;
-	font-family: 'JetBrainsMono', monospace;
+	font-family: 'OneShinhan', 'JetBrainsMono', monospace;
 	margin: 1.5rem 0;
 	padding: 0.75rem 1rem;
 

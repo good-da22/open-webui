@@ -177,9 +177,8 @@ def upload_file(
                             ProcessFileForm(file_id=id, content=result.get("text", "")),
                             user=user,
                         )
-
-                    # "/image/" 도 외부로더를 사용해서 처리하도록 수정 
-                    elif (not file.content_type.startswith("video/")) or (
+ 
+                    elif (not file.content_type.startswith("image/", "video/")) or (
                         request.app.state.config.CONTENT_EXTRACTION_ENGINE == "external"
                     ):
                         process_file(request, ProcessFileForm(file_id=id), user=user)

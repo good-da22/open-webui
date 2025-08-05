@@ -1656,10 +1656,7 @@
 		messages = messages
 			.map((message, idx, arr) => ({
 				role: message.role,
-				// 기존 코드: 모든 이미지를 image_url로 전송
-				// ...((message.files?.filter((file) => file.type === 'image').length > 0 ?? false) &&
-				// 수정된 코드: external loader로 처리되지 않은 이미지만 image_url로 전송
-				...((message.files?.filter((file) => file.type === 'image' && !file.processed_as_document).length > 0 ?? false) &&
+				...((message.files?.filter((file) => file.type === 'image').length > 0 ?? false) &&
 				message.role === 'user'
 					? {
 							content: [
