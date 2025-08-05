@@ -29,24 +29,24 @@
 	src: url('/assets/fonts/Vazirmatn-Variable.ttf');
 	font-display: swap;
 }
+
 @font-face {
   font-family: 'OneShinhan';
-  src: url('/static/assets/fonts/OneShinhanBold.ttf');
+  src: url('/static/assets/fonts/OneShinhanMedium.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'OneShinhan';
-  src: url('/static/assets/fonts/OneShinhanLight.ttf');
+  src: url('/static/assets/fonts/OneShinhanLight.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'OneShinhan';
-  src: url('/static/assets/fonts/OneShinhanMedium.ttf');
+  src: url('/static/assets/fonts/OneShinhanBold.ttf') format('truetype');
   font-display: swap;
 }
-
 
 html {
 	word-break: break-word;

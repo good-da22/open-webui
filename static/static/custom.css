@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'OneShinhan';
+  src: url('/static/assets/fonts/OneShinhanMedium.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OneShinhan';
+  src: url('/static/assets/fonts/OneShinhanLight.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OneShinhan';
+  src: url('/static/assets/fonts/OneShinhanBold.ttf') format('truetype');
+  font-display: swap;
+}
