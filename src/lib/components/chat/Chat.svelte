@@ -1656,7 +1656,10 @@
 		messages = messages
 			.map((message, idx, arr) => ({
 				role: message.role,
-				...((message.files?.filter((file) => file.type === 'image').length > 0 ?? false) &&
+				// 기존 코드: 모든 이미지를 image_url로 전송
+				// ...((message.files?.filter((file) => file.type === 'image').length > 0 ?? false) &&
+				// 수정된 코드: external loader로 처리되지 않은 이미지만 image_url로 전송
+				...((message.files?.filter((file) => file.type === 'image' && !file.processed_as_document).length > 0 ?? false) &&
 				message.role === 'user'
 					? {
 							content: [
@@ -1665,7 +1668,9 @@
 									text: message?.merged?.content ?? message.content
 								},
 								...message.files
-									.filter((file) => file.type === 'image')
+									// 기존 코드: .filter((file) => file.type === 'image')
+									// 수정된 코드: external loader로 처리되지 않은 이미지만 필터링
+									.filter((file) => file.type === 'image' && !file.processed_as_document)
 									.map((file) => ({
 										type: 'image_url',
 										image_url: {
@@ -2303,3 +2308,4 @@
 		</div>
 	{/if}
 </div>
+
