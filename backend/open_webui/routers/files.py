@@ -177,8 +177,7 @@ def upload_file(
                             ProcessFileForm(file_id=id, content=result.get("text", "")),
                             user=user,
                         )
- 
-                    elif (not file.content_type.startswith("image/", "video/")) or (
+                    elif (not file.content_type.startswith(("image/", "video/"))) or (
                         request.app.state.config.CONTENT_EXTRACTION_ENGINE == "external"
                     ):
                         process_file(request, ProcessFileForm(file_id=id), user=user)
@@ -200,14 +199,6 @@ def upload_file(
                 )
 
         if file_item:
-            # External loader로 처리된 이미지인 경우 플래그 추가
-            if (file.content_type and file.content_type.startswith("image/") and
-                hasattr(request.app.state.config, 'EXTERNAL_DOCUMENT_LOADER_URL') and
-                request.app.state.config.EXTERNAL_DOCUMENT_LOADER_URL):
-                file_item_dict = file_item.model_dump() if hasattr(file_item, 'model_dump') else file_item.__dict__
-                file_item_dict["processed_as_document"] = True
-                file_item_dict["original_type"] = "image"
-                return FileModelResponse(**file_item_dict)
             return file_item
         else:
             raise HTTPException(
